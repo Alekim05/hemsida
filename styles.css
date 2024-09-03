@@ -1,0 +1,486 @@
+/* Global Styles */
+body {
+    font-family: 'Raleway', sans-serif; /* Apply Raleway font */
+    line-height: 1.6;
+    color: #fd7014; /* Text color: Orange */
+    background-color: #ffffff; /* Background color: White */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Container to limit the width of content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Utility class for buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fd7014; /* Button background color */
+    color: #ffffff; /* Button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff8c42; /* Lighter shade for hover */
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('asdasdaa.png') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fd7014; /* Text color: Orange */
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-section .btn {
+    font-size: 1rem;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(255, 255, 255, 0); /* Transparent background initially */
+    color: #fd7014; /* Header text color: Orange */
+    position: fixed; /* Fixed position to keep it at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: none; /* No shadow initially */
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    z-index: 1000;
+}
+
+/* Header when scrolled */
+header.scrolled {
+    background-color: #ffffff; /* Solid background when scrolled */
+    padding: 5px 0; /* Adjust padding to be smaller on scroll */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility on scroll */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #fd7014; /* Navigation link color: Orange */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ff8c42; /* Navigation link hover color */
+}
+
+/* Services Section */
+.services-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* Section background color: White */
+    text-align: center; /* Center the text */
+}
+
+/* Centered heading in the Services Section */
+.services-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fd7014; /* Heading text color: Orange */
+}
+
+/* Container for cards */
+.services-section .cards-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between; /* Space cards evenly */
+    gap: 20px; /* Space between cards */
+}
+
+/* Styling for each card */
+.services-section .card {
+    background-color: #fd7014; /* Card background color: Orange */
+    color: #ffffff; /* Card text color: White */
+    border-radius: 15px;
+    padding: 20px; /* Adjusted padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Initial state: hidden */
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden; /* Hide overflow for card content */
+    z-index: 1; /* Ensure card stays above other elements */
+    flex: 1 1 calc(20% - 20px); /* Flex-grow, flex-shrink, and basis for card width */
+    max-width: calc(20% - 20px); /* Ensures card does not exceed 20% width */
+    height: 350px; /* Increased card height */
+}
+
+/* Show card */
+.services-section .card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effect */
+.services-section .card:hover {
+    transform: translateY(-10px) scale(1.05); /* Slightly elevate and scale up */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Gradient Overlay Effect */
+.services-section .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(253, 112, 20, 0.8), rgba(253, 112, 20, 0.6));
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 0; /* Place behind the content */
+}
+
+.services-section .card:hover::before {
+    opacity: 1; /* Show gradient on hover */
+}
+
+.services-section .card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* New Overlay Styling */
+.services-section .card .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #37414f; /* Semi-transparent black background */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.services-section .card:hover .card-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.services-section .card .card-overlay h4 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Contact Us Section */
+.contact-section {
+    padding: 60px 0;
+    background-color: #f4f4f4; /* Light grey background for the contact section */
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #fd7014; /* Heading text color: Orange */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff; /* White background for the form */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #37414f; /* Label text color: Dark grey */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #fd7014; /* Focus border color */
+    outline: none;
+}
+
+.contact-form .btn {
+    background-color: #fd7014; /* Button background color: Orange */
+    color: #ffffff; /* Button text color: White */
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background-color: #ff8c42; /* Lighter shade for button hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .services-section .card {
+        flex: 1 1 calc(25% - 20px); /* Adjust width to fit 4 cards per row */
+        max-width: calc(25% - 20px); /* Ensures card does not exceed 25% width */
+    }
+}
+
+@media (max-width: 900px) {
+    .services-section .card {
+        flex: 1 1 calc(33.33% - 20px); /* Adjust width to fit 3 cards per row */
+        max-width: calc(33.33% - 20px); /* Ensures card does not exceed 33.33% width */
+    }
+}
+
+@media (max-width: 600px) {
+    .services-section .card {
+        flex: 1 1 calc(50% - 20px); /* Adjust width to fit 2 cards per row */
+        max-width: calc(50% - 20px); /* Ensures card does not exceed 50% width */
+    }
+}
+
+@media (max-width: 400px) {
+    .services-section .card {
+        flex: 1 1 calc(100% - 20px); /* Adjust width to fit 1 card per row */
+        max-width: calc(100% - 20px); /* Ensures card does not exceed 100% width */
+    }
+}
+
+html {
+    scroll-behavior: smooth; /* Ensures smooth scrolling across the page */
+}
+
+header h1 a {
+    color: #fd7014; /* Original text color */
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+header h1 a:hover {
+    transform: scale(1.1); /* Slightly increase size */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+#typed-text {
+    font-weight: bold;
+    color: #fd7014;
+}
+
+/* Style for the overlay button */
+.overlay-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff; /* Button background color */
+    color: #fd7014; /* Button text color */
+    border: 2px solid #fd7014; /* Button border */
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.overlay-btn:hover {
+    background-color: #fd7014; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
+}
+
+
+/* SEM DETAILS CSS --------------------------------------------------------------------------------------------*/
+
+.hero-section-sem {
+    background: url('sem-hero.jpg') no-repeat center center/cover;
+    height: 60vh;
+    color: #fd7014;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-section-sem h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-section-sem p {
+    font-size: 1.2rem;
+}
+
+.intro-section {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.intro-section h2 {
+    color: #fd7014;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1.1rem;
+    color: #37414f;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.benefits-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.benefits-section h2 {
+    margin-bottom: 40px;
+    color: #fd7014;
+}
+
+.benefits-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.benefit {
+    flex: 1;
+    max-width: 30%;
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.benefit img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.benefit h3 {
+    color: #37414f;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    color: #666;
+}
+
+.approach-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.approach-section h2 {
+    margin-bottom: 40px;
+    color: #fd7014;
+}
+
+.approach-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.step {
+    flex: 1;
+    max-width: 45%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+    color: #37414f;
+    margin-bottom: 15px;
+}
+
+.step p {
+    color: #666;
+}
+
+.cta-section {
+    padding: 60px 0;
+    background-color: #fd7014;
+    color: #ffffff;
+    text-align: center;
+}
+
+.cta-section h2 {
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: #fd7014;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #f4f4f4;
+    color: #fd7014;
+}
